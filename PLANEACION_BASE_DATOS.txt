@@ -1,0 +1,56 @@
+creado:11:13 p. m. 16/04/2021
+
+TABLA:SUCESO
+
+ID_SUCESO
+ID_CREADOR_SUCESO
+CIUDAD_SUCESO
+LUGAR_SUCESO
+SUCESO
+RELATO_SUCESO
+FECHA_CREACION_SUCESO     :TIMESTAMP
+
+
+
+TABLA:COMENTARIOS
+
+ID_COMENTARIO
+ID_SUCESO  :FK
+ID_PERSONA :FK11:13 p. m. 
+COMENTARIO
+FECHA_CREACION_COMENTARIO
+
+
+
+
+TABLA:PERSONA
+
+ID_PERSONA
+NOMBRE_PERSONA
+CORREO_PERSONA
+EDAD_PERSONA
+CIUDAD_PERSONA
+CONTRASENA_PERSONA
+CONFIRMACION_CORREO_PERSONA
+FECHA_CREACION_PERSONA
+
+
+
+
+
+-----------------------------------------------
+
+create table comentarios(
+	id_comentario int not null PRIMARY KEY,
+    comentario int not null,
+    fecha_creacion_comentario int not null,
+    id_suceso int not null,
+    id_persona int not null,
+
+    FOREIGN key fk_id_suceso(id_suceso)
+    REFERENCES suceso(id_suceso),
+    
+    FOREIGN KEY fk_id_persona(id_persona)
+	REFERENCES persona(id_persona)
+
+);
